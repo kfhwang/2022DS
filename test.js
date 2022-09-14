@@ -1,1 +1,1 @@
-var class="MD2";
+var class="MD3";
