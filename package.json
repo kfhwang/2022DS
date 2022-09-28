@@ -1,0 +1,28 @@
+{
+  "name": "2022ds",
+  "version": "1.0.0",
+  "description": "Data structure by using Javascript ",
+  "main": "BMI.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfhwang/2022DS.git"
+  },
+  "keywords": [
+    "JS",
+    "Data",
+    "structure"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kfhwang/2022DS/issues"
+  },
+  "homepage": "https://github.com/kfhwang/2022DS#readme"
+}
