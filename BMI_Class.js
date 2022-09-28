@@ -1,6 +1,6 @@
 class BMI{
     constructor(h, w){
-        
+
         this.height = h;
         this.weight = w;
     }
@@ -34,3 +34,7 @@ var mybmi = new BMI(height, weight);
 
 console.log(mybmi.bmi())
 //console.log(mybmi2.bmi())
+
+var ary = new Array();
+ary.push(1)
+

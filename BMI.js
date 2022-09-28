@@ -1,6 +1,7 @@
 var readline = require("readline-sync");
-
-while (true) {
+//for (; true; ) {   
+do{
+//while (true) {
     var height = readline.question("Ur height?");
     if (isNaN(height) || height < 10 || height > 220) {
         console.log("Please input ur height between 10 and 200");
@@ -12,10 +13,11 @@ while (true) {
         console.log("Please...");
         continue;
     }
-
-}
+    break;
+}while(true);
 
 var hPower2 = Math.pow(height / 100, 2);
-var bmi = weight / hPower2;
-//console.log("Your height: "+ height+ '\n ,weight:'+weight);
-console.log("Your bmi= " + bmi);
+    var bmi = weight / hPower2;
+    //console.log("Your height: "+ height+ '\n ,weight:'+weight);
+    console.log("Your bmi= " + bmi);
+
