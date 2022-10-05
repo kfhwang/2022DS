@@ -8,13 +8,17 @@ class BMI{
     bmi = function(){
         var hPower2 = Math.pow(this.height / 100, 2);
         var bmi = this.weight / hPower2;
-        return bmi;
+        return Math.round(bmi*100)/100;
+    }
+
+    static goodbmi(){
+        return "18.5~24";
     }
 }
 
 var readline = require("readline-sync");
-for (; true; ) {   
-//do{
+//for (; true; ) {   
+do{
 //while (true) {
     var height = readline.question("Ur height?");
     if (isNaN(height) || height < 10 || height > 220) {
@@ -29,12 +33,14 @@ for (; true; ) {
     }
     break;
 }while(true);
+
+console.log(BMI.goodbmi());
+
 var mybmi = new BMI(height, weight);
 //var mybmi2 = new BMI(170, 60);
 
 console.log(mybmi.bmi())
 //console.log(mybmi2.bmi())
 
-var ary = new Array();
-ary.push(1)
+
 
