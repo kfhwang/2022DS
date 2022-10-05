@@ -27,13 +27,21 @@ do {
             console.log("Down...");
             while(targetFloor<currentFloor){
                 //currentFloor -= 1;
-                //currentFloor--;
-                currentFloor = currentFloor -1;
-                console.log("Elevator now at:"+currentFloor);
+                currentFloor--;
+                //currentFloor = currentFloor -1;
+                console.log("Elevator now at:"+  currentFloor);
             }
         }else if(targetFloor > currentFloor){ //case 2: up
-       
-        
+            // do{
+            //     currentFloor++;
+            //     console.log("Elevator now at:"+  currentFloor);
+            // }while(targetFloor > currentFloor);
+            // for(;targetFloor>currentFloor; currentFloor++){
+            //     console.log("Elevator now at:"+  currentFloor);
+            // }
+            for(;targetFloor>currentFloor;){
+                console.log("Elevator now at:"+  (++currentFloor));
+            }
         }
         //else if(targetFloor==currentFloor){//case 3: stop
         else{
