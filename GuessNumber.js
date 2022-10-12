@@ -3,8 +3,8 @@ var readline = require("readline-sync");
 
 function guessNumber() {
 
-    // generating a pseudo random integer from 1 to 10
-    var random = Math.floor(Math.random() * 10) + 1;
+    // generating a pseudo random integer from 10 to 100
+    var random = Math.floor(Math.random() * 91) + 10;
 
     // take input from the user
     let number = parseInt(readline.question('Guess a number from 1 to 10: '));
