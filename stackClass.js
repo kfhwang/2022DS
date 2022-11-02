@@ -11,17 +11,21 @@ class Stack{
             return "overflow";
         }
     }
-
+    isEmpty = function(){
+        return this.stack.length<=0;
+    }
     pop = function (){
-        if(this.stack.length>0){
-            return this.stack.pop();
-        }else{
+        if(this.isEmpty()){
             return "empty";
+        }else{
+            return this.stack.pop();
         }
     }
 }
 
 var str="{a = (1 + v(b[3 + c[4]]));"
+
+
 var myStack = new Stack(10);
 myStack.push("A");
 myStack.push("B");
