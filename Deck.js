@@ -64,8 +64,9 @@ for (let i = deck.length - 1; i > 0; i--) {
 console.log('The first five cards are:');
 
 // display 5 results
-var TotalPoint = 0;
-var count=0;
+var TotalPoint1 = 0;
+//var count=0;
+var TotalPoint2 = 0;
 
 var player1 = [], player2= [];
 
@@ -88,13 +89,12 @@ player1.forEach(function(card){
      newcard.width = 250;
      newcard.src = "PNG-cards/"+card.File;
      document.getElementById("Cards1").appendChild(newcard)
-     TotalPoint += card.Point;
+     TotalPoint1 += card.Point;
 })
 // for(var i=0; i<player1.length;i++){
 //     player1[i]
 // }
-
-document.getElementById("Point").innerHTML=TotalPoint;
+document.getElementById("Point1").innerHTML=TotalPoint1;
 // function addcard(){
 //     var newcard = document.createElement("img");
 //     newcard.width = 250;
@@ -108,10 +108,35 @@ document.getElementById("Point").innerHTML=TotalPoint;
 function addcard1(){
         var newcard = document.createElement("img");
         newcard.width = 250;
-        player1.push(deck.pop());
+        if(deck.length>0)
+            player1.push(deck.pop());
         newcard.src = "PNG-cards/"+player1[player1.length-1].File;
-        TotalPoint += player1[player1.length-1].Point;
+        TotalPoint1 += player1[player1.length-1].Point;
         document.getElementById("Cards1").appendChild(newcard)
-        document.getElementById("Point1").innerHTML=TotalPoint;
-        count++;
+        document.getElementById("Point1").innerHTML=TotalPoint1;
+}
+
+//for player2
+player2.push(deck.pop());
+player2.push(deck.pop());
+player2.forEach(function(card){
+    var newcard = document.createElement("img");
+     newcard.width = 250;
+     newcard.src = "PNG-cards/"+card.File;
+     document.getElementById("Cards2").appendChild(newcard)
+     TotalPoint2 += card.Point;
+})
+// for(var i=0; i<player1.length;i++){
+//     player1[i]
+// }
+document.getElementById("Point2").innerHTML=TotalPoint2;
+function addcard2(){
+    var newcard = document.createElement("img");
+    newcard.width = 250;
+    if(deck.length>0)
+        player2.push(deck.pop());
+    newcard.src = "PNG-cards/"+player2[player2.length-1].File;
+    TotalPoint2 += player2[player2.length-1].Point;
+    document.getElementById("Cards2").appendChild(newcard)
+    document.getElementById("Point2").innerHTML=TotalPoint2;
 }
