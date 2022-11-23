@@ -5,6 +5,10 @@ class Point {
     }
 }
 
+async function sleep(_sec){
+    return new Promise(ret => setTimeout(ret, _sec*1000));
+}
+
 function drawBoard(_board){
     var canvas = document.getElementById("board").getContext("2d");
     
@@ -27,8 +31,16 @@ function drawBoard(_board){
 
 }
 
+function drawPath(_stack){
+    _stack.forEach(item=>{
+        var canvas = document.getElementById("board").getContext("2d");
+        canvas.fillStyle = "#ffff00";
+        canvas.fillRect(item.col*50, item.row*50, 50, 50);
+    })
+   
+}
 
-function goMaze(_maze, start, exit) {
+async function goMaze(_maze, start, exit) {
     var row = start.row, col = start.col; //start point
     var exitRow = exit.row, exitCol = exit.col; //終點
     var stack = [];
@@ -36,7 +48,9 @@ function goMaze(_maze, start, exit) {
     //shuffle
     dir.sort(function(a,b){return Math.random()-0.5});
     while (row != exitRow || col != exitCol) {
+        await sleep(0.5);
         drawBoard(_maze);
+        //drawPoint(row,col);
         _maze[row][col] = 2;
         //Up (-1,0) Left:(0,-1) Down:(1,0) Right:(0,1)
         if (_maze[row + dir[0][0]][col+dir[0][1]] == 0) {
@@ -76,14 +90,9 @@ function goMaze(_maze, start, exit) {
     if (stack.length > 0) {
         stack.push(new Point(row, col));
         _maze[row][col] = 2;
-        console.log(JSON.stringify(stack));
-        drawBoard(_maze);
-        stack.forEach(item=>{
-            var canvas = document.getElementById("board").getContext("2d");
-            canvas.fillStyle = "#ffff00";
-            canvas.fillRect(item.col*50, item.row*50, 50, 50);
-        })
-       
+        //console.log(JSON.stringify(stack));
+        //drawBoard(_maze);
+        drawPath(stack);
     } else {
         console.log("No solution!")
     }
