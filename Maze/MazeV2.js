@@ -32,28 +32,35 @@ function goMaze(_maze, start, exit) {
     var row = start.row, col = start.col; //start point
     var exitRow = exit.row, exitCol = exit.col; //終點
     var stack = [];
+    var dir = [[1,0],[-1,0],[0,1],[0,-1]];
+    //shuffle
+    dir.sort(function(a,b){return Math.random()-0.5});
     while (row != exitRow || col != exitCol) {
         drawBoard(_maze);
         _maze[row][col] = 2;
-        //Up
-        if (_maze[row - 1][col] == 0) {
+        //Up (-1,0) Left:(0,-1) Down:(1,0) Right:(0,1)
+        if (_maze[row + dir[0][0]][col+dir[0][1]] == 0) {
             stack.push(new Point(row, col));
-            row = row - 1;
+            row = row + dir[0][0];
+            col = col + dir[0][1];
         }
         //Left
-        else if (_maze[row][col - 1] == 0) {
+        else if (_maze[row + dir[1][0]][col +dir[1][1]] == 0) {
             stack.push(new Point(row, col));
-            col = col - 1;
+            row = row + dir[1][0];
+            col = col + dir[1][1];
         }
         //Down
-        else if (_maze[row + 1][col] == 0) {
+        else if (_maze[row + dir[2][0]][col +dir[2][1]] == 0) {
             stack.push(new Point(row, col));
-            row = row + 1;
+            row = row + dir[2][0];
+            col = col + dir[2][1];
         }
         //Right
-        else if (_maze[row][col + 1] == 0) {
+        else if (_maze[row + dir[3][0]][col +dir[3][1]] == 0) {
             stack.push(new Point(row, col));
-            col = col + 1;
+            row = row + dir[3][0];
+            col = col + dir[3][1];
         }
         //back to previous step
         else {
@@ -68,10 +75,19 @@ function goMaze(_maze, start, exit) {
     }
     if (stack.length > 0) {
         stack.push(new Point(row, col));
+        _maze[row][col] = 2;
         console.log(JSON.stringify(stack));
+        drawBoard(_maze);
+        stack.forEach(item=>{
+            var canvas = document.getElementById("board").getContext("2d");
+            canvas.fillStyle = "#ffff00";
+            canvas.fillRect(item.col*50, item.row*50, 50, 50);
+        })
+       
     } else {
         console.log("No solution!")
     }
+   
 }
 
 var MAZE = [
