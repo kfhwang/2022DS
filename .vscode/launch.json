@@ -28,6 +28,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "__max_old_space)_size" : 4096,
             "program": "${file}",
             "console": "integratedTerminal"
         }

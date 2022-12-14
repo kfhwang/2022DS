@@ -59,7 +59,7 @@ Life.prototype.update = function(){
             if(this.getStatusAt(row,col)==LIVE && (count<2 || count>3)){
                 nextGrid[row][col]=DEAD;
             }
-            if(this.getStatusAt(row,col)==DEAD && count==3){
+            if(this.getStatusAt(row,col)==DEAD && (count==2 || count==3)){
                 nextGrid[row][col] = LIVE;
             }
           }
@@ -83,10 +83,12 @@ class Board{
         this.canvas.lineStyle = "#000";
     }
     draw(){
+        var color=["#f00","#0f0","#00f","#ff0"]
         for (let row = 0; row < this.game.row; row++) {
             for (let col = 0; col < this.game.col; col++) {
                 if(this.game.grid[row][col]==LIVE){
-                    this.canvas.fillStyle = "#f00"; 
+
+                    this.canvas.fillStyle = color[Math.floor(Math.random()*4)]; 
                     
                 }else if(this.game.grid[row][col]==DEAD){
                     this.canvas.fillStyle = "#fff"; 
@@ -145,7 +147,7 @@ myBoard.draw();
  function rand(){
     for (let row = 0; row < mygame.row; row++) {
         for (let col = 0; col < mygame.col; col++) {
-            if(Math.random()<0.1)
+            if(Math.random()<0.01)
                 mygame.grid[row][col]=LIVE;
             else
                 mygame.grid[row][col]=DEAD;
