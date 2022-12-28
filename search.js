@@ -18,7 +18,7 @@ var game=[
 // }
 
 function chkPoint(item){
-    return item.level > 20000;
+    return item.point > 20000;
 }
 
 function greater7(num,idx){
