@@ -59,7 +59,7 @@ Life.prototype.update = function(){
             if(this.getStatusAt(row,col)==LIVE && (count<2 || count>3)){
                 nextGrid[row][col]=DEAD;
             }
-            if(this.getStatusAt(row,col)==DEAD && (count==2 || count==3)){
+            if(this.getStatusAt(row,col)==DEAD && (count==3)){
                 nextGrid[row][col] = LIVE;
             }
           }
